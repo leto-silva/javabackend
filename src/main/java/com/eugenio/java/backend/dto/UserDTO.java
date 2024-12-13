@@ -6,6 +6,7 @@ import java.util.List;
 
 import jakarta.annotation.PostConstruct;
 import com.eugenio.java.backend.controller.UserController;
+import com.eugenio.java.backend.model.User;
 
 public class UserDTO {
 	//	
@@ -52,7 +53,21 @@ public class UserDTO {
 	public void setDataCadastro(Date dataCadastro) {
 		this.dataCadastro = dataCadastro;
 	}
-			
+	
+	
+	public static UserDTO convert(User usuarios) {
+		//
+		UserDTO userDTO = new UserDTO();
+		userDTO.setNome(usuarios.getNome());
+		userDTO.setEndereco(usuarios.getEndereco());
+		userDTO.setCpf(usuarios.getCpf());
+		userDTO.setEmail(usuarios.getEmail());
+		userDTO.setTelefone(usuarios.getTelefone());
+		userDTO.setDataCadastro(usuarios.getDataCadastro());
+		return userDTO;		
+	}
+	
+	
 	
 
 }
